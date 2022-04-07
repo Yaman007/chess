@@ -20,8 +20,8 @@ chess_notation_inverse = chessboard.chess_notation_inverse  # a1 = (0, 0)
 # starting_fen = '8/4Q3/3K4/8/8/2r3k1/8/5R2 w - - 0 0'  # end game position
 # starting_fen = '6k1/5p2/6p1/8/7p/8/6PP/6K1 b - - 0 0'
 # starting_fen = 'r7/4R2P/3p4/3k1K2/2p5/8/8/8 b - - 0 0'
-starting_fen = 'R7/8/5rk1/5p2/1p5P/5KP1/P7/8 b - - 0 0'
-# starting_fen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'  # starting position
+# starting_fen = 'R7/8/5rk1/5p2/1p5P/5KP1/P7/8 b - - 0 0'
+starting_fen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'  # starting position
 
 WIDTH = constants.WIDTH
 
@@ -366,7 +366,7 @@ def main():
                 fen = chessboard.get_fen_from_board(board, player_color, en_passant_square, half_moves=half_moves,
                                                     full_moves=len(game_moves_queue) // 2)
                 print('it is computer\'s turn as', player_color, ' and fen=', fen)
-                best_move = evaluate.get_current_position_score(fen)
+                best_move = evaluate.get_stockfish_score(fen)
                 pygame.time.delay(1000)
                 print('best move: ', best_move)
                 if len(best_move) != 4:
