@@ -9,6 +9,8 @@ bishopWt = 3.2
 knightWt = 3
 pawnWt = 1
 mobilityWt = 0.1
+wK = bK = wQ = bQ = wB = bB = wN = bN = wP = bP = 0  # piece count
+wM = bM = 0  # piece mobility
 
 
 def get_stockfish_score(fen):
@@ -30,6 +32,9 @@ def get_material_score_from_fen(fen):
 def get_material_score_from_board(board):
     print('*** inside get_material_score_from_board ***')
     print('board = ', board)
+    for piece in chessboard.get_piece_list_by_name(board, 'R', 'w'):
+        print(piece.__dict__)
+
     score = '10'
     print('score = ', score)
     print('### exiting ###')
